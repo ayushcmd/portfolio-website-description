@@ -3,355 +3,397 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayush | Portfolio</title>
+  <title>Ayush Raj — Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar">
-  <div class="logo">Ayush</div>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="grid-bg"></div>
+<div id="glow-blob"></div>
+<div class="mobile-header">
+  <div class="mobile-brand">AR</div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+  <img src="assets/ayush.png" alt="Ayush Raj" class="sidebar-avatar" />
+  <div class="brand-name">Ayush Raj</div>
+  <div class="brand-role">CS &amp; Data Analytics</div>
+  <div class="coord-marker">IIT Patna · 4th Semester</div>
+</div>
   
-
-  <ul class="nav-links">
-    <li><a href="#" data-section="home" class="active">Home</a></li>
-    <li><a href="#" data-section="about">About</a></li>
-    <li><a href="#" data-section="skills">Skills</a></li>
-    <li><a href="#" data-section="projects">Projects</a></li>
-    <li><a href="#" data-section="contact">Contact</a></li>
-
-
+  <ul class="sidebar-nav">
+    <li><a href="#" data-section="home" class="active"><span class="nav-index">01</span> Home</a></li>
+    <li><a href="#" data-section="about"><span class="nav-index">02</span> About</a></li>
+    <li><a href="#" data-section="skills"><span class="nav-index">03</span> Skills</a></li>
+    <li><a href="#" data-section="projects"><span class="nav-index">04</span> Projects</a></li>
+    <li><a href="#" data-section="contact"><span class="nav-index">05</span> Contact</a></li>
   </ul>
-</nav>
-
-<!-- ===== HOME ===== -->
-<section id="home" class="page-section active-section home">
-  <div class="home-container">
-
-    <div class="home-content">
-      <h1>Hi, I'm <span>Ayush Raj</span></h1>
-      <h2>Frontend Developer</h2>
-      <p>
-        I build clean, responsive and user-friendly websites
-        using modern web technologies.
-      </p>
-
-      <div class="home-buttons">
-        <a href="#" class="btn primary" data-section="about">About Me</a>
-        <a href="#" class="btn secondary">Download CV</a>
-      </div>
-    </div>
-
-    <div class="home-image">
-      <img src="assets/ayush.png" alt="Profile Photo" />
-    </div>
-
+  <div class="sidebar-footer">
+    <div class="status-row"><div class="status-dot"></div><span>Open to opportunities</span></div>
+    <a href="https://github.com/ayushcmd" target="_blank">github.com/ayushcmd</a><br>
+    <span style="color:#3a3a50">© 2025 Ayush Raj</span>
   </div>
-</section>
-
-<!-- ===== ABOUT ===== -->
-<!-- ====== ABOUT ====== -->
-<section id="about" class="page-section about">
-  <div class="about-container">
-
-    <div class="about-text">
-      <h2>About Me</h2>
-
-      <p>
-        I am a <strong>second-year undergraduate student</strong> currently in my
-        <strong>4th semester</strong> at <strong>IIT Patna</strong>, pursuing
-        <strong>Computer Science & Data Analytics</strong>. I have maintained a
-        strong academic record, achieving a <strong>CPI of 8.7 in my 3rd semester</strong>.
-      </p>
-
-      <p>
-        I enjoy working on problems that require analytical thinking, structured
-        reasoning, and real-world relevance. My academic journey has helped me
-        develop a strong foundation in problem-solving and data-driven thinking.
-      </p>
-
-      <p>
-        Beyond academics, I have a keen interest in
-        <strong>social change, economics, and geography</strong>, and I am curious
-        about how data and technology can contribute to informed decision-making
-        in areas such as environmental analysis and public policy.
-      </p>
-
-      <!-- Academic Snapshot -->
-      <h3 class="about-subheading">Academic Snapshot</h3>
-      <ul class="about-list">
-        <li><strong>Institute:</strong> Indian Institute of Technology (IIT) Patna</li>
-        <li><strong>Program:</strong> Computer Science & Data Analytics</li>
-        <li><strong>Year:</strong> 2nd Year (4th Semester)</li>
-        <li><strong>CPI:</strong> 8.7 (3rd Semester)</li>
-      </ul>
-
-      <!-- Interests -->
-      <h3 class="about-subheading">Interests</h3>
-      <div class="about-tags interest-tags">
-        <span>Social Change</span>
-        <span>Economics</span>
-        <span>Environmental Studies</span>
-        <span>Data-Driven Insights</span>
-      </div>
-
-      <a href="#" class="btn primary back-btn" data-section="home">Back to Home</a>
-    </div>
-
-  </div>
-</section>
-
-
+</aside>
+<main class="main">
+  <section id="home" class="section active">
+    <div class="section-label">Ayush Raj · Portfolio</div>
+    <div class="home-eyebrow">[ CS + Data Analytics · IIT Patna ]</div>
+    <h1 class="home-title">Building at the<br>intersection of<br><span class="italic-name">code &amp; data.</span></h1>
+    <div class="typewriter-wrap"><span class="typewriter-prefix">→ currently_working_on:</span><span id="typewriter"></span><span class="typewriter-cursor"></span></div>
+    <div class="home-cta">
+      <a href="#" class="btn-primary" data-section="projects">↗ View Projects</a>
+      <a href="#" class="btn-ghost" data-section="contact">Get in Touch</a>
+      <a href="#" class="btn-resume" title="Resume coming soon">↓ Resume</a>
       
     </div>
-
-    <div class="about-glow">
-      <div class="glow-circle"></div>
+    <div class="home-stats">
+      <div class="stat-chip"><div class="stat-value">8.7</div><div class="stat-label">CPI (Sem 3)</div></div>
+      <div class="stat-chip"><div class="stat-value">4th</div><div class="stat-label">Semester</div></div>
+      <div class="stat-chip"><div class="stat-value">2+</div><div class="stat-label">Projects</div></div>
+      <div class="stat-chip"><div class="stat-value">∞</div><div class="stat-label">Curiosity</div></div>
     </div>
-
-  </div>
-</section>
-
-<!-- ====== SKILLS ====== -->
-<section id="skills" class="page-section skills">
-  <div class="skills-container">
-
-    <h2>Skills</h2>
-    <p class="skills-intro">
-      A snapshot of my technical skill set, built through coursework, self-learning, and hands-on projects.
-    </p>
-
-    <!-- Skill Category -->
-    <div class="skills-group">
-      <h3>Basic Programming Concepts</h3>
-      <div class="skills-tags">
-        <span>OOPs</span>
-        <span>Functions</span>
-        <span>Loops</span>
-        <span>Conditionals</span>
-        <span>Data Structures</span>
-        <span>Algorithms</span>
+   
+</div>  
+  </section>
+  
+  <section id="about" class="section">
+    <div class="section-label">About me</div>
+    <div class="about-grid">
+      <div class="about-left">
+        <h2>Solving problems<br>that <em>matter.</em></h2>
+        <div class="about-body">
+          <p>I'm a Computer Science & Data Analytics undergraduate at IIT Patna focused on building systems that turn data into meaningful insights.</p>
+          <p> My interests sit at the intersection of software engineering, data analysis, and machine learning — where clean code meets real-world decision making. I enjoy designing tools, dashboards, and analytical systems that help people understand complex data clearly.</p>
+          <p> Recently I've been working on data visualization projects, analytical dashboards, and small full-stack tools, while continuing to strengthen my foundations in algorithms, systems, and machine learning.</p>
+          <p> I’m naturally curious about how technology works at a deeper level. I enjoy learning new tools, experimenting with emerging technologies, and continuously expanding my technical understanding through hands-on projects.</p>
+          <p> Outside of coding I enjoy cricket, badminton, and exploring topics like economics, environmental data, and global systems. I'm also interested in learning about world languages and cultures, and I enjoy studying languages such as Japanese and Spanish to better understand different societies and perspectives.</p>
+        </div>
+        
+      </div>
+      <div class="about-right">
+        <div class="academic-card">
+          <div class="academic-card-title">// academic</div>
+          <div class="academic-rows">
+            <div class="academic-row"><span class="key">institute</span><span class="val">IIT Patna</span></div>
+            <div class="academic-row"><span class="key">program</span><span class="val">CS &amp; Data Analytics</span></div>
+            <div class="academic-row"><span class="key">year</span><span class="val">2nd Year</span></div>
+            <div class="academic-row"><span class="key">semester</span><span class="val">4th (ongoing)</span></div>
+            <div class="academic-row"><span class="key">CPI (Sem 3)</span><span class="val highlight-cpi">8.7 / 10</span></div>
+            <div class="academic-row"><span class="key">status</span><span class="val" style="color:var(--mint)">● Active</span></div>
+          </div>
+        </div>
+        <div class="academic-card">
+          <div class="academic-card-title">// academic participation</div>
+          <div class="academic-rows">
+            <div class="academic-row" style="flex-direction:column;align-items:flex-start;gap:6px">
+              <span class="val" style="font-size:.8rem">Animal Welfare Tracking System</span>
+              <span class="key" style="font-size:.7rem">Capstone Project · Sem 2 · Team</span>
+            </div>
+            <div class="academic-row" style="flex-direction:column;align-items:flex-start;gap:6px">
+              <span class="val" style="font-size:.8rem">Hackathon Participant</span>
+              <span class="key" style="font-size:.7rem">Multiple events · Problem-solving under constraints</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- Skill Category -->
-    <div class="skills-group">
-      <h3>Languages & Development</h3>
-      <div class="skills-tags">
-        <span>Python</span>
-        <span>C++</span>
-        <span>R</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>React</span>
+    <a href="#" class="btn-ghost" data-section="home" style="margin-top:40px;">← Back to Home</a>
+  </section>
+  <section id="skills" class="section">
+    <div class="section-label">Technical skills</div>
+    <div class="skills-header"><h2>What I work<br>with <em>daily.</em></h2></div>
+    <div class="skills-body">
+      <div class="skill-category-list">
+        <button class="skill-cat-btn active" data-panel="foundations"><span class="cat-dot"></span> Foundations</button>
+        <button class="skill-cat-btn" data-panel="languages"><span class="cat-dot"></span> Languages</button>
+        <button class="skill-cat-btn" data-panel="ai-ml"><span class="cat-dot"></span> AI / ML</button>
+        <button class="skill-cat-btn" data-panel="tools"><span class="cat-dot"></span> Tools</button>
       </div>
-    </div>
-
-    <!-- Skill Category -->
-    <div class="skills-group">
-      <h3>AI & Machine Learning</h3>
-      <div class="skills-tags">
-        <span>Supervised Learning</span>
-        <span>Unsupervised Learning</span>
-        <span>Deep Learning</span>
-        <span>Neural Networks</span>
-      </div>
-    </div>
-
-    <!-- Skill Category -->
-    <div class="skills-group">
-      <h3>Core & Other Technologies</h3>
-      <div class="skills-tags">
-        <span>Git & GitHub</span>
-        <span>Problem Solving</span>
-        <span>DSA</span>
-        <span>Linux Basics</span>
-        <span>Computer Networks (Basics)</span>
-        <span>DBMS (Basics)</span>
-      </div>
-    </div>
-
-    <a href="#projects" class="btn primary">View Projects</a>
-
-  </div>
-
-  <!-- Glow Effect -->
-  <div class="skills-glow">
-    <div class="glow-circle"></div>
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="page-section contact active-section">
-  <div class="contact-container">
-
-    <h2>Contact Details</h2>
-    <p class="contact-intro">
-      I’m always open to discussing internships, projects, collaborations, or learning opportunities.
-      Feel free to reach out.
-    </p>
-
-    <div class="contact-cards">
-
-      <!-- Personal Email -->
-      <div class="contact-card">
-        <h3>Personal Email</h3>
-        <p>For general communication & opportunities</p>
-        <a href="mailto:ayushhh0826@outlook.com">
-          ayushhh0826@outlook.com
+        
+      <div class="skill-panels">
+        <div class="skill-panel active" id="panel-foundations">
+          <div class="skill-panel-title">Programming Foundations</div>
+          <div class="skill-panel-desc">Core concepts that underpin everything — applied across problem-solving, development, and system design.</div>
+        <div class="skill-tag-grid">
+          <div class="skill-tag" data-tooltip="Sem 1 2024&#10 Core of C++ coursework">Object-Oriented Programming</div>
+          <div class="skill-tag" data-tooltip="Sem 2 2025&#10 Arrays, stacks, queues & trees in Data Structures course">Data Structures</div>
+          <div class="skill-tag" data-tooltip="Sem 3 2025&#10 Sorting, searching & algorithm design principles">Algorithms</div> 
+          <div class="skill-tag" data-tooltip="Sem 3 2025&#10 Time & space complexity analysis of algorithms">Complexity Analysis</div>
+          <div class="skill-tag" data-tooltip="Sem 2 2025&#10 Matrix operations and vector spaces for ML foundations">Linear Algebra</div>
+          <div class="skill-tag" data-tooltip="Sem 1 · 2 · 3 2025&#10   Probability distributions and statistical inference">Probabaility & Statistics</div>
+          <div class="skill-tag" data-tooltip="Sem 2 2025&#10 Numerical computation methods for data analysis">Numerical Methods</div>
+          <div class="skill-tag" data-tooltip="Sem 1 ·  4  2024–25&#10;Digital electronics and CPU architecture">Computer Organization</div>
+        </div>
+         </div>
+        <div class="skill-panel" id="panel-languages">
+          <div class="skill-panel-title">Languages &amp; Frameworks</div>
+          <div class="skill-panel-desc">Languages used across data work, backend logic, and frontend interfaces.</div>
+          <div class="skill-tag-grid">
+          <div class="skill-tag" data-tooltip="Sem 1 · 2024&#10;Primary language for data analysis and ML coursework">Python</div>
+          <div class="skill-tag" data-tooltip="Sem 1 · 2024&#10;OOP concepts and competitive programming">C++</div>
+          <div class="skill-tag" data-tooltip="Self-taught · 2025&#10;Statistical computing and data analysis">R</div>
+          <div class="skill-tag" data-tooltip="Sem 4 · 2026&#10;Relational database queries and data management">SQL</div>
+          <div class="skill-tag" data-tooltip="Sem 4 · 2026&#10;DOM manipulation and client-side logic">JavaScript</div>
+          <div class="skill-tag" data-tooltip="Sem 4 · 2026&#10;Backend development and REST APIs">Node.js</div>
+          <div class="skill-tag" data-tooltip="Self-taught · 2026&#10;Component-based frontend development">React</div>
+          <div class="skill-tag" data-tooltip="Sem 4 · 2026&#10;NoSQL database and document-based storage">MongoDB</div>
+          <div class="skill-tag" data-tooltip="Sem 4 · 2026&#10;Semantic structure for web interfaces">HTML</div>
+          <div class="skill-tag" data-tooltip="Sem 4 · 2026&#10;Responsive design and UI styling">CSS</div>
+        </div>
+         
+        </div>
+        <div class="skill-panel" id="panel-ai-ml">
+          <div class="skill-panel-title">AI &amp; Machine Learning</div>
+          <div class="skill-panel-desc">Concepts explored through coursework and applied to analytical projects.</div>
+         <div class="skill-tag-grid">
+         <div class="skill-tag" data-tooltip="2025–2026&#10;Regression and classification models">Supervised Learning</div>
+         <div class="skill-tag" data-tooltip="2025–2026&#10;Clustering and dimensionality reduction">Unsupervised Learning</div>
+         <div class="skill-tag" data-tooltip="2025–2026&#10;Deep neural network architectures">Deep Learning</div>
+         <div class="skill-tag" data-tooltip="2025–2026&#10;Forward propagation and backpropagation">Neural Networks</div>
+         <div class="skill-tag" data-tooltip="2025–2026&#10;Text processing and language models">Natural Language Processing</div>
+         <div class="skill-tag" data-tooltip="2025–2026&#10;Feature extraction and transformation">Feature Engineering</div>
+         <div class="skill-tag" data-tooltip="2025–2026&#10;Model validation and performance metrics">Model Evaluation</div>
+         <div class="skill-tag" data-tooltip="2025–2026&#10;Cleaning and preparing datasets for ML">Data Preprocessing</div>
+       </div>
           
-
-        </a>
+        </div>
+        <div class="skill-panel" id="panel-tools">
+          <div class="skill-panel-title">Tools &amp; Ecosystem</div>
+          <div class="skill-panel-desc">Supporting toolchain for version control, data visualization, and systems work.</div>
+          <div class="skill-tag-grid">
+          <div class="skill-tag" data-tooltip="2024–2026&#10;Primary development environment">VS Code</div>
+          <div class="skill-tag" data-tooltip="2024–2026&#10;Version control for projects">Git</div>
+          <div class="skill-tag" data-tooltip="2024–2026&#10;Code hosting and collaboration">GitHub</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Hosting static websites and portfolios">GitHub Pages</div>
+          <div class="skill-tag" data-tooltip="2026&#10;Frontend deployment and hosting platform">Vercel</div>
+          <div class="skill-tag" data-tooltip="2026&#10;Form handling and backend integration for static sites">Formspree</div>
+          <div class="skill-tag" data-tooltip="2026&#10;API testing and request debugging">Postman</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Interactive notebooks for data analysis and ML experiments">Jupyter Notebook</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Cloud notebooks for machine learning experiments">Google Colab</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Python environment and package management">Anaconda</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Numerical computing with arrays">NumPy</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Data manipulation and analysis">Pandas</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Machine learning models and utilities">Scikit-learn</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Deep learning framework">TensorFlow</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;High-level neural network API">Keras</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Data visualization and plotting">Matplotlib</div>
+          <div class="skill-tag" data-tooltip="2024–2026&#10;Interactive dashboards and analytics">Power BI</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Data modeling and expressions in Power BI">DAX</div>
+          <div class="skill-tag" data-tooltip="2025–2026&#10;Relational database queries and schema design">Oracle SQL</div>
+       </div>
+        </div>
       </div>
+    </div>
+    <a href="#" class="btn-ghost" data-section="home" style="margin-top:40px;">← Back to Home</a>
+  </section>
+  <section id="projects" class="section">
+    <div class="section-label"> projects</div>
+    <div class="projects-header"><h2>Things I've<br><em>built.</em></h2></div>
+    <div class="project-list">
+      <div class="project-item">
+        <div>
+          <h3>Air Pollution in India — 2024</h3>
+          <p class="project-desc">Interactive Power BI dashboard analyzing AQI, PM2.5, PM10, and pollution trend data across major Indian cities. Custom DAX measures and dynamic filtering for regional comparison.</p>
+          <div class="project-tech"><span>Power BI</span><span>DAX</span><span>Data Visualization</span><span>Analytics</span></div>
+        </div>
+        <div class="project-links-col">
+          <span class="proj-badge">Data Analytics</span>
+          <a href="https://github.com/ayushcmd/AQI-PowerBI-Dashboard" target="_blank" class="proj-link">↗ GitHub</a>
+          <a href="https://app.powerbi.com/links/aZY0sC6VfJ?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare" target="_blank" class="proj-link">↗ Live Dashboard</a>
+        </div>
+        
+      </div>
+      <div class="project-item">
+        <div>
+          <h3>Personal Portfolio Website</h3>
+          <p class="project-desc">Personal developer portfolio built from scratch using HTML for the structured page layout, CSS for styling, visual grid design, and responsive interface, and JavaScript for interactive navigation, dynamic UI behavior, and smooth section-based single-page application (SPA) transitions.</p>
+          <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive Design</span></div>
+        </div>
+        <div class="project-links-col">
+          <span class="proj-badge">Web Dev</span>
+          <a href="https://ayushcmd.github.io/portfolio-website/" target="_blank" class="proj-link">↗ Live Site</a>
+        </div>
+      </div>
+      <div class="project-item" style="border-style:dashed;opacity:.45">
+        <div>
+          
+          <h3>Dollar Hagemony Dashboard </h3>
+          <p class="project-desc">Something being built. Check back soon.</p>
+          <div class="project-tech"><span>TBD</span></div>
+        </div>
+        <div class="project-links-col"><span class="proj-badge" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:var(--text-dim)">Coming Soon</span></div>
+      </div>
+      <a href="#" class="btn-ghost" data-section="home" style="margin-top:40px;">← Back to Home</a>
+    </div>
+  </section>
+<section id="contact" class="section">
+  <div class="section-label">Get in touch</div>
+
+  <!-- HEADING -->
+  <div class="contact-header">
+    <h2>Let's<br><em>connect.</em></h2>
+  </div>
+
+  <!-- BLOCK 1: Who am I -->
+  <div class="contact-block">
+    <div class="contact-block-title">// who_am_i.txt</div>
+    <div class="contact-who-grid">
+      <div class="contact-who-item">
+        <span class="contact-who-key">name</span>
+        <span class="contact-who-val">Ayush Raj</span>
+      </div>
+      <div class="contact-who-item">
+        <span class="contact-who-key">institute</span>
+        <span class="contact-who-val">IIT Patna</span>
+      </div>
+      <div class="contact-who-item">
+        <span class="contact-who-key">program</span>
+        <span class="contact-who-val">CS &amp; Data Analytics</span>
+      </div>
+      <div class="contact-who-item">
+        <span class="contact-who-key">year</span>
+        <span class="contact-who-val">2nd Year · 4th Semester</span>
+      </div>
+      <div class="contact-who-item">
+        <span class="contact-who-key">CPI</span>
+        <span class="contact-who-val" style="color:var(--amber)">8.7 / 10</span>
+      </div>
+      <div class="contact-who-item">
+        <span class="contact-who-key">location</span>
+        <span class="contact-who-val">Patna, India</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 2: Looking For -->
+  <div class="contact-block">
+    <div class="contact-block-title">// open_to.txt</div>
+    <div class="contact-opento-grid">
+      <div class="contact-opento-item">
+        <span class="opento-icon">↗</span>
+        <div>
+          <div class="opento-title">Internships</div>
+          <div class="opento-desc">Data Analytics, Web Dev, ML&DL </div>
+        </div>
+      </div>
+      <div class="contact-opento-item">
+        <span class="opento-icon">↗</span>
+        <div>
+          <div class="opento-title">Collaborative Projects</div>
+          <div class="opento-desc">Open source, hackathons, team builds</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 3: Contact Details -->
+  <div class="contact-block">
+    <div class="contact-block-title">// contact_details.json</div>
+    <div class="contact-links-grid">
+
+      <a href="mailto:ayushhh0826@outlook.com" class="contact-link-card">
+        <div class="clc-icon">✉</div>
+        <div class="clc-info">
+          <div class="clc-label">Personal Email</div>
+          <div class="clc-val">ayushhh0826@outlook.com</div>
+        </div>
+      </a>
+
+      <a href="mailto:ayush_24a12res897@iitp.ac.in" class="contact-link-card">
+        <div class="clc-icon">✉</div>
+        <div class="clc-info">
+          <div class="clc-label">Institute Email</div>
+          <div class="clc-val">ayush_24a12res897@iitp.ac.in</div>
+        </div>
+      </a>
+
+      <a href="tel:+917509285203" class="contact-link-card">
+        <div class="clc-icon">☎</div>
+        <div class="clc-info">
+          <div class="clc-label">Phone</div>
+          <div class="clc-val">+91 9109790826</div>
+        </div>
+      </a>
+
+      <a href="https://github.com/ayushcmd/" target="_blank" class="contact-link-card">
+        <div class="clc-icon">⌥</div>
+        <div class="clc-info">
+          <div class="clc-label">GitHub</div>
+          <div class="clc-val">github.com/ayushcmd</div>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/aryiitp/" target="_blank" class="contact-link-card">
+        <div class="clc-icon">in</div>
+        <div class="clc-info">
+          <div class="clc-label">LinkedIn</div>
+          <div class="clc-val">linkedin.com/in/aryiitp</div>
+        </div>
+      </a>
+
+      <a href="https://leetcode.com/u/09ARY/" target="_blank" class="contact-link-card">
+        <div class="clc-icon">{}</div>
+        <div class="clc-info">
+          <div class="clc-label">LeetCode</div>
+          <div class="clc-val">leetcode.com/u/09ARY</div>
+        </div>
+      </a>
 
       
 
-      <!-- Educational Email -->
-      <div class="contact-card ">
-        <h3>Institutional Email</h3>
-        <p>Preferred for academic & internship outreach</p>
-        <a href="mailto:ayush_24a12res897@iitp.ac.in">
-          ayush_24a12res897@iitp.ac.in
-        </a>
-      </div>
-
-      <!-- Contact Number -->
-<div class="contact-card">
-  <h3>Phone</h3>
-  <p>Available during working hours</p>
-  <a href="tel:+917509285203">
-    +91 7509285203
-  </a>
-</div>
-
-<!-- Social Profiles -->
-<div class="contact-card">
-  <h3>Social Profiles</h3>
-  <p>Professional & development profiles</p>
-
-  <div class="social-links">
-    <a href="https://github.com/ayushcmd" target="_blank">
-      GitHub ll
-    </a>
-
-    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">
-      LinkedIn
-    </a>
-  </div>
-</div>
-
-
-
     </div>
-
-    <p class="contact-footer">
-      Currently open to <span>internships</span>, <span>research roles</span>, and <span>collaborative projects</span>.
-    </p>
-
   </div>
+
+  <a href="#" class="btn-ghost" data-section="home" style="margin-top:40px;">← Back to Home</a>
 </section>
+  
+</main>
 
-<!-- ===== PROJECTS ===== -->
-<section id="projects" class="page-section projects active-section">
-  <div class="projects-container">
-
-    <h2>Projects</h2>
-    <p class="projects-intro">
-      A selection of projects that demonstrate my skills in development,
-      data analysis, and problem solving.
-    </p>
-
-    <div class="projects-grid">
-
-      <!-- Project 1 : Power BI -->
-      <div class="project-card ">
-  <span class="project-badge">Data Analytics</span>
-
-  <h3>Air Pollution in India – 2024</h3>
-
-  <p class="project-desc">
-    Interactive Power BI dashboard analyzing Air Quality Index (AQI),
-    PM2.5, PM10, and other pollutant parameters across major Indian cities.
-  </p>
-
-  <div class="project-tags">
-    <span>Power BI</span>
-    <span>DAX</span>
-    <span>Data Visualization</span>
-    <span>Data Analysis</span>
-  </div>
-
-  <div class="project-links">
-  <a href="https://github.com/ayushcmd/AQI-PowerBI-Dashboard" target="_blank">
-    GitHub
-  </a>
-
-  <span class="divider"></span>
-
-  <a href="https://app.powerbi.com/links/aZY0sC6VfJ?ctid=a57f7d92-038e-4d4c-8265-7cd2beb33b34&pbi_source=linkShare" title="Microsoft login required">
-    Live Dashboard
-  </a>
-</div>
-
-
-  <small class="project-note">
-    Dashboard access requires Microsoft login.
-  </small>
-</div>
-
-
-      <!-- Project 2 -->
-      <div class="project-card">
-        <span class="project-badge">Web Development</span>
-
-        <h3>Personal Portfolio Website</h3>
-        <p class="project-desc">
-          Responsive personal portfolio showcasing projects, skills,
-          and contact information with a modern UI.
-        </p>
-
-        <div class="project-tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-
-        <div class="project-links">
-          <a href="#" target="_blank">Live Demo</a>
-          <a href="#" target="_blank">GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="project-card">
-        <span class="project-badge">Algorithms</span>
-
-        <h3>DSA Practice & Visual Notes</h3>
-        <p class="project-desc">
-          A structured collection of data structures and algorithms
-          implementations with explanations and visual aids.
-        </p>
-
-        <div class="project-tags">
-          <span>C++</span>
-          <span>DSA</span>
-          <span>Problem Solving</span>
-        </div>
-
-        <div class="project-links">
-          <a href="#" target="_blank">GitHub</a>
-        </div>
-      </div>
-
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-brand">Ayush Raj</span>
+      <span class="footer-sub">CS &amp; Data Analytics · IIT Patna</span>
     </div>
-
+    <div class="footer-center">
+      <a href="index.html">Home</a>
+      <a href="privacy.html" target="_blank">Privacy Policy</a>
+      <a href="mailto:ayushhh0826@outlook.com">Contact</a>
+    </div>
+    <div class="footer-right">© 2025 Ayush Raj · Built with HTML, CSS &amp; JS</div>
   </div>
-</section>
+</footer>
+
+<div class="enquiry-float" id="enquiry-float">
+  <button class="enquiry-btn" id="enquiry-toggle">
+    <span class="enquiry-icon">✉</span>
+    <span class="enquiry-text">Quick Enquiry</span>
+  </button>
+  <div class="enquiry-form" id="enquiry-form">
+    <div class="enquiry-form-header">
+      <span>Send a message</span>
+      <button id="enquiry-close">✕</button>
+    </div>
+    <input type="text" id="enq-name" placeholder="Your name" />
+    <input type="email" id="enq-email" placeholder="Your email" />
+    <textarea id="enq-msg" placeholder="Your message..." rows="4"></textarea>
+    <button class="enquiry-submit" id="enq-submit">Send ↗</button>
+    <p class="enquiry-status" id="enq-status"></p>
+  </div>
+</div>
 
 
-
-
-<script src="script.js"></script>
+  <!-- Script -->
+  <script src="script.js"></script>
 </body>
 </html>
