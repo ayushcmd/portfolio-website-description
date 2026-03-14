@@ -68,7 +68,7 @@ Hosting           →  GitHub Pages
 | Token | Value | Usage |
 |-------|-------|-------|
 | `--ink` | `#08080d` | Page background |
-| `--amber` | `#cc0000` | Primary accent (Ra-One red) |
+| `--amber` | `#cc0000` | Primary accent  |
 | `--red-btn` | `#ff1a2e` | Electric red — buttons, glows |
 | `--mint` | `#00ffa3` | Secondary accent — status, learning badges |
 | `--text` | `#c8c8d8` | Body text |
