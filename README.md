@@ -85,8 +85,8 @@ Hosting           →  GitHub Pages
 | 📧 Personal | ayushhh0826@outlook.com |
 | 🏫 Institute | ayush_24a12res897@iitp.ac.in |
 | 💻 GitHub | [ayushcmd](https://github.com/ayushcmd) |
-| 🔗 LinkedIn | [aryiitp](https://www.linkedin.com/in/ayush08iitp/) |
-| 🧩 LeetCode | [09ARY](https://leetcode.com/u/ayush08iitp/) |
+| 🔗 LinkedIn | [ayush08iitp](https://www.linkedin.com/in/ayush08iitp/) |
+| 🧩 LeetCode | [ayush08iitp](https://leetcode.com/u/ayush08iitp/) |
 
 ---
 
