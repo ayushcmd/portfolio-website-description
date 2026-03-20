@@ -49,28 +49,34 @@ document.addEventListener('click', (e) => {
 });
 
 // ── TYPEWRITER EFFECT ────────────────────────
-const phrases = [
-  "data visualization dashboards",
-  "full-stack web interfaces",
-  "machine learning experiments",
-  "clean, readable code",
-  "solutions that actually matter"
-];
 let phraseIndex = 0, charIndex = 0, isDeleting = false;
 const twEl = document.getElementById('typewriter');
+let phrases = [];
 
 function typeLoop() {
+  if (!phrases.length) return;
   const current = phrases[phraseIndex];
   if (!isDeleting) {
     twEl.textContent = current.slice(0, ++charIndex);
-    if (charIndex === current.length) { isDeleting = true; setTimeout(typeLoop, 1800); return; }
-  } else {
+    if (charIndex === current.length) { isDeleting = true; setTimeout(typeLoop, 2800); return; }  } else {
     twEl.textContent = current.slice(0, --charIndex);
     if (charIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; }
   }
-  setTimeout(typeLoop, isDeleting ? 40 : 70);
+  setTimeout(typeLoop, isDeleting ? 90 : 120);
 }
-typeLoop();
+
+// Start typewriter after i18n loads
+document.addEventListener('i18n:ready', () => {
+  phrases = [
+    window.translations['typewriter.0'] || 'data visualization dashboards',
+    window.translations['typewriter.1'] || 'full-stack web interfaces',
+    window.translations['typewriter.2'] || 'machine learning experiments',
+    window.translations['typewriter.3'] || 'clean, readable code',
+    window.translations['typewriter.4'] || 'solutions that actually matter',
+  ];
+  phraseIndex = 0; charIndex = 0; isDeleting = false;
+  typeLoop();
+});
 
 // ── SKILLS TABS ──────────────────────────────
 document.querySelectorAll('.skill-cat-btn').forEach(btn => {
@@ -96,21 +102,31 @@ enqSubmit.addEventListener('click', async () => {
   const name  = document.getElementById('enq-name').value.trim();
   const email = document.getElementById('enq-email').value.trim();
   const msg   = document.getElementById('enq-msg').value.trim();
-  if (!name || !email || !msg) { enqStatus.textContent = 'Please fill all fields.'; enqStatus.className = 'enquiry-status error'; return; }
-  enqSubmit.textContent = 'Sending…'; enqSubmit.disabled = true;
+  if (!name || !email || !msg) {
+    enqStatus.textContent = window.translations['form.error_fill'] || 'Please fill all fields.';
+    enqStatus.className = 'enquiry-status error';
+    return;
+  }
+  enqSubmit.textContent = window.translations['form.sending'] || 'Sending…';
+  enqSubmit.disabled = true;
   try {
     const res = await fetch('https://formspree.io/f/mreyzbyr', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, message: msg })
     });
     if (res.ok) {
-      enqStatus.textContent = '✓ Message sent!'; enqStatus.className = 'enquiry-status success';
+      enqStatus.textContent = window.translations['form.success'] || '✓ Message sent!';
+      enqStatus.className = 'enquiry-status success';
       document.getElementById('enq-name').value = '';
       document.getElementById('enq-email').value = '';
       document.getElementById('enq-msg').value = '';
     } else throw new Error();
-  } catch { enqStatus.textContent = '✗ Failed. Try again.'; enqStatus.className = 'enquiry-status error'; }
-  enqSubmit.textContent = 'Send ↗'; enqSubmit.disabled = false;
+  } catch {
+    enqStatus.textContent = window.translations['form.error_failed'] || '✗ Failed. Try again.';
+    enqStatus.className = 'enquiry-status error';
+  }
+  enqSubmit.textContent = window.translations['form.submit_btn'] || 'Send ↗';
+  enqSubmit.disabled = false;
 });
 
 // ── SCROLL PROGRESS BAR ──────────────────────
@@ -168,7 +184,10 @@ async function loadGithubActivity() {
       } else continue;
       rendered.push({ icon, text, ago: getRelativeTime(new Date(ev.created_at)) });
     }
-    if (rendered.length === 0) { container.innerHTML = '<div class="gh-error">No recent public activity.</div>'; return; }
+    if (rendered.length === 0) {
+      container.innerHTML = `<div class="gh-error">${window.translations['home.activity.empty'] || 'No recent public activity.'}</div>`;
+      return;
+    }
     container.innerHTML = rendered.map(ev => `
       <div class="gh-event">
         <span class="gh-event-icon">${ev.icon}</span>
@@ -177,7 +196,9 @@ async function loadGithubActivity() {
           <div class="gh-event-meta">${ev.ago}</div>
         </div>
       </div>`).join('');
-  } catch { document.getElementById('gh-events').innerHTML = '<div class="gh-error">Could not load activity — check back later.</div>'; }
+  } catch {
+    document.getElementById('gh-events').innerHTML = `<div class="gh-error">${window.translations['home.activity.error'] || 'Could not load activity — check back later.'}</div>`;
+  }
 }
 function getRelativeTime(date) {
   const diff = Math.floor((Date.now() - date) / 1000);
@@ -199,25 +220,20 @@ async function loadHeatmap() {
     if (!res.ok) throw new Error();
     const data = await res.json();
 
-    const contributions = data.contributions; // array of { date, count, level }
+    const contributions = data.contributions;
     if (!contributions || !contributions.length) throw new Error();
 
-    // Total this year
     const total = contributions.reduce((sum, d) => sum + d.count, 0);
-    const yr = new Date().getFullYear();
     totalEl.innerHTML = `<span>${total}</span> contributions in the last year`;
 
-    // Build 52-week grid (Sun→Sat columns)
-    // Group by week
     const weeks = [];
     let week = [];
-    contributions.forEach((day, i) => {
+    contributions.forEach((day) => {
       week.push(day);
       if (week.length === 7) { weeks.push(week); week = []; }
     });
     if (week.length) weeks.push(week);
 
-    // Month labels — detect when month changes across week starts
     const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     let lastMonth = -1;
     const monthLabels = weeks.map(w => {
@@ -226,7 +242,6 @@ async function loadHeatmap() {
       return '';
     });
 
-    // Render month row
     const monthRow = document.createElement('div');
     monthRow.className = 'gh-heatmap-months';
     monthLabels.forEach(label => {
@@ -236,7 +251,6 @@ async function loadHeatmap() {
       monthRow.appendChild(span);
     });
 
-    // Render grid
     const grid = document.createElement('div');
     grid.className = 'gh-heatmap-grid-wrap';
 
@@ -253,17 +267,16 @@ async function loadHeatmap() {
       grid.appendChild(col);
     });
 
-    // Legend
     const legend = document.createElement('div');
     legend.className = 'gh-heatmap-legend';
     legend.innerHTML = `
-      <span class="gh-heatmap-legend-label">Less</span>
+      <span class="gh-heatmap-legend-label">${window.translations['home.heatmap.less'] || 'Less'}</span>
       <div class="gh-heatmap-legend-cell gh-cell-0"></div>
       <div class="gh-heatmap-legend-cell gh-cell-1"></div>
       <div class="gh-heatmap-legend-cell gh-cell-2"></div>
       <div class="gh-heatmap-legend-cell gh-cell-3"></div>
       <div class="gh-heatmap-legend-cell gh-cell-4"></div>
-      <span class="gh-heatmap-legend-label">More</span>
+      <span class="gh-heatmap-legend-label">${window.translations['home.heatmap.more'] || 'More'}</span>
     `;
 
     body.innerHTML = '';
@@ -272,7 +285,7 @@ async function loadHeatmap() {
     body.appendChild(legend);
 
   } catch {
-    body.innerHTML = '<div class="gh-heatmap-loading" style="color:var(--text-dim)">Could not load heatmap.</div>';
+    body.innerHTML = `<div class="gh-heatmap-loading" style="color:var(--text-dim)">${window.translations['home.heatmap.error'] || 'Could not load heatmap.'}</div>`;
   }
 }
 loadHeatmap();
