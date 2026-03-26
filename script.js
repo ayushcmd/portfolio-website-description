@@ -1,25 +1,3 @@
-// ── CUSTOM CURSOR ────────────────────────────
-const dot  = document.getElementById('cursor-dot');
-const ring = document.getElementById('cursor-ring');
-
-document.addEventListener('mousemove', e => {
-  dot.style.left = e.clientX + 'px';
-  dot.style.top  = e.clientY + 'px';
-  setTimeout(() => {
-    ring.style.left = e.clientX + 'px';
-    ring.style.top  = e.clientY + 'px';
-  }, 60);
-});
-
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    ring.style.width = '50px'; ring.style.height = '50px';
-    ring.style.borderColor = 'var(--amber)';
-  });
-  el.addEventListener('mouseleave', () => {
-    ring.style.width = '32px'; ring.style.height = '32px';
-  });
-});
 
 // ── SPA NAVIGATION ───────────────────────────
 const navLinks = document.querySelectorAll('[data-section]');
