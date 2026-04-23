@@ -1,170 +1,171 @@
 # Pages and API Routes
 
-This document covers every URL in the project — both the pages visitors see and the backend API routes that power the features.
+This document covers every URL in the portfolio — the pages visitors see and the backend API routes powering them.
 
 ---
 
-## Pages (What Visitors See)
+## Navigation Structure
 
-### `/` — Home Page
+```
+Navbar:   HOME  ·  PROJECTS  ·  CREDENTIALS  ·  FORGE  ·  PERSONA  ·  KIRO
+Footer:   Visitors  ·  Gallery  ·  Monitor
+```
+
+The navbar labels (FORGE, PERSONA) are display names. The actual URLs are `/skills` and `/about`.
+
+---
+
+## Pages
+
+### `/` — Home
 **File:** `app/page.tsx` (60KB)
 
-The main page. It's intentionally content-rich because it's what most visitors land on. Sections include:
+The main landing page. Contains all key sections in one scroll:
 
-- **Hero** — Animated intro with name, title, and call-to-action buttons
-- **Featured Projects** — Grid of project cards using the `ProjectCard` component
-- **Tech Stack** — Visual display of skills and tools
-- **About Snapshot** — Short bio linking to `/about`
-- **Visitor Lounge** — The embedded real-time chat room (uses `VisitorLounge.tsx`)
-- **Enquiry Section** — Contact form (uses `EnquirySection.tsx`)
-
----
-
-### `/about` — About Page
-**File:** `app/about/page.tsx` (16KB)
-
-Covers Ayush's background in detail:
-- Education at IIT Patna (BSc CSDA, 2024–2028, CPI 8.7)
-- Personal background (from Raipur, Chhattisgarh)
-- Academic coursework
-- Interests (macro economics, financial markets, ML research)
-- Career goals (DS/ML and full-stack internships)
+- **Hero** — "Hello! I'm Ayush Raj · Full-Stack & ML Developer" with animated role cycling (STUDENT / DEVELOPER), floating tech icons (React, Next.js, TypeScript, Python, Docker, Node.js, Tailwind, LangChain, FastAPI), and CTA buttons (Lounge, Resume & CV, Launch Pad)
+- **Featured Projects** — 3 highlighted projects (FitoGlobe, Dollar Hegemony, India Banking Dashboard) with tech tags and links
+- **About Me** — India hover card with location (25.59°N 85.14°E · GMT+5:30), short bio, and three pillars (Growth, Focus, Craft)
+- **Experience** — Education timeline (IIT Patna, 2024–2028) + Internship (AuthBridge Technologies, Backend & API Design Intern, Dec 2025–Feb 2026)
+- **Reach Out** — Workflow pipeline (IDEA → PLAN → AI HELP → CODE → REVIEW → TEST → LEARN) + contact links (Mail, GitHub, LinkedIn)
 
 ---
 
-### `/projects` — Projects Page
+### `/projects` — Projects `[PROJECTS]`
 **File:** `app/projects/page.tsx`
 
-Displays all projects from `lib/constants.ts`. Each project renders via `ProjectCard.tsx` and shows:
-- Project title and description
-- Tech stack tags
-- Project scope (what problem it solves)
-- Links to GitHub repo and live demo
-- Status badge if the project is `wip` or `coming-soon`
+All 8 projects displayed via `ProjectCard.tsx`. Each card shows:
+- Title, description, and scope
+- Tech stack as pill tags
+- GitHub repo and live demo links
+- Status badge (`wip` or `coming-soon` if applicable)
+
+**Projects listed:** CommodityChain, FitoGlobe, Dollar Hegemony, India Crime Analytics, India Banking Dashboard, AQI PowerBI Dashboard, SchemeRadar (coming soon), BugHunterAgent (coming soon)
 
 ---
 
-### `/credentials` — Credentials Page
+### `/credentials` — Credentials `[CREDENTIALS]`
 **File:** `app/credentials/page.tsx` (16KB)
 
-Showcases certificates, course completions, and recognitions. Each item renders via `CredentialCard.tsx`. Certificate images are stored in `public/certs/`.
+Certificates, course completions, and recognitions. Each item rendered via `CredentialCard.tsx`. Certificate images stored in `public/certs/`.
 
 ---
 
-### `/gallery` — Gallery Page
-**File:** `app/gallery/page.tsx` (10KB)
-
-A photo gallery with a lightbox viewer. Uses `GallerySection.tsx`. Photos are stored in `public/gallery/`. Clicking a photo opens it full-screen with navigation.
-
----
-
-### `/skills` — Skills Page
+### `/skills` — Forge `[FORGE]`
 **File:** `app/skills/page.tsx` (11KB)
 
-A categorized breakdown of the full tech stack. Categories include:
-- Frontend
-- Backend
-- Databases
-- ML/AI tools
-- Developer tools
+Tech stack broken down by category. The navbar label "FORGE" reflects the page's identity — it's where Ayush's technical toolkit is displayed.
 
-Data comes from `lib/constants.ts`.
+Categories:
+- Frontend (Next.js, React, TypeScript, TailwindCSS, Framer Motion...)
+- Backend (FastAPI, Node.js, Express, Prisma, JWT...)
+- Databases (PostgreSQL, MongoDB Atlas, Supabase, Redis, Upstash...)
+- ML/AI (XGBoost, LSTM, LangChain, LangGraph, Groq, HuggingFace, MLflow...)
+- Tools (Docker, Git, Vercel, Jupyter, Power BI, Postman...)
 
----
-
-### `/spectrum` — Server Health Dashboard
-**File:** `app/spectrum/page.tsx` (15KB)
-
-A live dashboard that displays real-time server and portfolio metrics. It calls `/api/spectrum` to fetch:
-- Server uptime
-- Memory usage (heap used, heap total, RSS)
-- CPU load averages (1min, 5min)
-- Node.js version
-- Current environment (production/development)
-- Portfolio content count (projects, credentials, skills)
-- SEO status flags
-
-This page is useful to demonstrate that the portfolio is a real running application, not just static HTML.
+Data source: `lib/constants.ts`
 
 ---
 
-### `/kiro` — KIRO AI Chatbot
+### `/about` — Persona `[PERSONA]`
+**File:** `app/about/page.tsx` (16KB)
+
+Full personal and professional background. The navbar label "PERSONA" reflects that this is the identity/character page.
+
+Contains:
+- Full bio and background (from Raipur, Chhattisgarh)
+- Education details (IIT Patna, BSc CSDA, CPI 8.7, 2024–2028)
+- Internship at AuthBridge Technologies
+- Coursework (DSA, Linear Algebra, Probability, DBMS, OS, OOP...)
+- Interests (macro economics, financial markets, ML research, competitive programming — 200+ LeetCode problems)
+- Career goals (DS/ML and full-stack internships, long-term: ML/full-stack engineer at a product company)
+
+---
+
+### `/kiro` — KIRO AI Chatbot `[KIRO]`
 **File:** `app/kiro/page.tsx` (11KB)
 
-An interactive AI assistant interface. The chatbot is named KIRO. Visitors can ask it anything about Ayush:
+An AI assistant interface embedded in the portfolio. KIRO is a chatbot that represents Ayush and can answer any visitor question about him.
+
+**Example questions it handles:**
 - "Tell me about Ayush"
 - "What projects has he built?"
 - "Should I hire him?"
-- "What's his tech stack?"
+- "What's his CPI / GPA?"
+- "What internship experience does he have?"
 
-KIRO responds in a confident, concise manner. It knows Ayush's full background because that information is embedded in the system prompt in the API route. See the API routes section below for implementation details.
+Powered by **Groq API** (`llama-3.3-70b-versatile`). KIRO's full knowledge base (projects, education, internship, tech stack, social links, goals) is embedded in the server-side system prompt — never exposed to the browser.
+
+Runs on **Vercel Edge Runtime** — responds in under a second globally.
 
 ---
 
-## API Routes (Backend Endpoints)
+### `/gallery` — Gallery `[footer]`
+**File:** `app/gallery/page.tsx` (10KB)
 
-These are server-side functions that run on Vercel. They're not pages — they return data (usually JSON) to the browser or other parts of the application.
+Photo gallery with lightbox viewer. Accessible from the footer. Photos stored in `public/gallery/`. Click any photo to open full-screen with arrow navigation.
+
+---
+
+### `/spectrum` — Monitor `[footer → Monitor]`
+**File:** `app/spectrum/page.tsx` (15KB)
+
+Live server health dashboard. Accessible from the footer as "Monitor". Calls `/api/spectrum` on load and displays:
+
+- Server status (LIVE / DOWN)
+- Uptime in seconds
+- Memory: heap used, heap total, RSS (MB), efficiency %
+- CPU load averages (1 min, 5 min)
+- Stack versions: Next.js, React, Node.js
+- Environment (production/development)
+- Content counts: projects (8), credentials (3), skills (30)
+- SEO status flags
+- Server response latency
+
+Demonstrates that this portfolio is a real running application, not static HTML.
+
+---
+
+## API Routes
+
+Next.js API routes are server-side functions that run on Vercel. They return data (JSON) rather than rendering pages.
 
 ---
 
 ### `GET /api/analytics`
 **File:** `app/api/analytics/route.ts`
 
-Returns visitor stats for the analytics display on the site.
+Returns visitor stats for the analytics display.
 
-**What it returns:**
+**Response:**
 ```json
 {
   "total24h": "12",
   "activeNow": "87",
   "avgSession": "204",
-  "countries": [
-    { "name": "India", "pct": 48 },
-    { "name": "United States of America", "pct": 14 }
-  ],
-  "os": [
-    { "name": "Windows", "pct": 63 },
-    { "name": "Mac", "pct": 17 }
-  ]
+  "countries": [{ "name": "India", "pct": 48 }, ...],
+  "os": [{ "name": "Windows", "pct": 63 }, ...]
 }
 ```
 
-**How it works:**
-1. Increments daily, weekly, monthly, and total view counters in Upstash Redis
-2. Reads country and OS breakdown from environment variables (pre-filled manually)
-3. Returns everything as JSON
-
-**Note on field names:** The JSON field names (`total24h`, `activeNow`, `avgSession`) map to daily views, monthly views, and total views respectively — the names are slightly misleading in the raw response but the frontend labels them correctly.
+Increments daily/weekly/monthly/total counters in Upstash Redis on every call. Country and OS breakdown are read from environment variables.
 
 ---
 
-### `POST /api/kiro`
-**File:** `app/api/kiro/route.ts`
+### `POST /api/kiro` — Edge Function
+**File:** `app/api/kiro/route.ts` (6KB)
 
-The AI chatbot endpoint.
+The KIRO AI chatbot endpoint. Runs on Vercel Edge Runtime.
 
-**Runtime:** Edge (runs at the closest Vercel data center to the visitor — very fast)
+Receives conversation history → appends system prompt → calls Groq API → returns response text.
 
-**How it works:**
-1. Receives the conversation history as an array of messages
-2. Appends Ayush's full profile as a system prompt
-3. Sends the full conversation to Groq's API (`llama-3.3-70b-versatile` model)
-4. Returns the AI's response as plain text
-
-**Request format:**
+**Request:**
 ```json
-{
-  "messages": [
-    { "role": "user", "content": "What projects has Ayush built?" }
-  ]
-}
+{ "messages": [{ "role": "user", "content": "What projects has Ayush built?" }] }
 ```
 
-**Response format:**
+**Response:**
 ```json
-{
-  "content": "Ayush has built several deployed projects..."
-}
+{ "content": "Ayush has built several deployed projects..." }
 ```
 
 ---
@@ -172,158 +173,94 @@ The AI chatbot endpoint.
 ### `GET /api/spectrum`
 **File:** `app/api/spectrum/route.ts`
 
-Returns live server health and portfolio metadata.
+Returns live server health metrics. Powers the `/spectrum` (Monitor) page.
 
-**What it returns:**
 ```json
 {
   "status": "LIVE",
-  "health": 100,
   "uptime": 3842,
   "memory": { "heapUsed": 42, "heapTotal": 68, "efficiency": 61 },
   "load": { "avg1": "0.12", "avg5": "0.08" },
-  "stack": { "next": "15.5.14", "react": "18.3.1", "node": "20.11.0" },
-  "content": { "projects": 8, "credentials": 3, "skills": 30 },
-  "latency": { "server": 47 }
+  "stack": { "next": "15.5.14", "react": "18.3.1", "node": "20.x" },
+  "content": { "projects": 8, "credentials": 3, "skills": 30 }
 }
 ```
-
-This data feeds the `/spectrum` dashboard page.
 
 ---
 
 ### `POST /api/track`
 **File:** `app/api/track/route.ts`
 
-Called automatically when a visitor loads the portfolio. Logs their visit data.
+Called silently on every page load. Logs visitor data.
 
-**How it works:**
-1. Reads the visitor's IP address from the request headers
-2. Calls `ipapi.co/{ip}/json/` to get their city and country
-3. Stores `{ city, country, visit_count, last_seen }` in Redis under a key per IP
-4. Adds the IP to a Redis set (`visitors:ips`) so all unique visitors can be listed
+1. Reads IP from request headers
+2. Calls `ipapi.co/{ip}/json/` for city + country
+3. Stores `{ city, country, visit_count, last_seen }` in Redis per IP
+4. Adds IP to a Redis set of all unique visitors
 
-**This runs silently** — visitors don't see or interact with this.
+Visitors never see or interact with this.
 
 ---
 
 ### `GET /api/visitors`
 **File:** `app/api/visitors/route.ts`
 
-Returns the list of tracked visitor records from Redis. Access is protected — only authorized users can call this endpoint.
+Returns list of tracked visitor records from Redis. Protected endpoint — requires authorization token.
 
 ---
 
 ### `GET /api/gallery`
 **File:** `app/api/gallery/route.ts`
 
-Returns the list of gallery images to display on the `/gallery` page. Allows the gallery to be data-driven without hardcoding image filenames in the component.
+Returns gallery image data for the `/gallery` page.
 
 ---
 
 ## Visitor Lounge API Routes
 
-All lounge routes live under `/api/lounge/`. Together they form a complete real-time chat backend.
+8 routes under `/api/lounge/` form a complete real-time chat backend.
 
 ---
 
 ### `POST /api/lounge/send`
-**File:** `app/api/lounge/send/route.ts`
+Sends a new message. Validates and sanitizes: `user` (max 24 chars), `text` (max 350 chars), `country` (2-letter code), optional `replyTo` and `file` (base64).
 
-Sends a new message to the Visitor Lounge.
-
-**Accepts:**
-- `user` — display name (max 24 characters)
-- `text` — message text (max 350 characters)
-- `country` — 2-letter country code (e.g., "IN", "US")
-- `replyTo` — optional: the message being replied to
-- `file` — optional: base64-encoded file attachment
-
-**What it does:**
-1. Validates and sanitizes all inputs
-2. Creates a message object with a unique ID and timestamp
-3. Appends the message to a Redis list (max 80 messages kept)
-4. Publishes the message to a Redis Pub/Sub channel so all connected SSE clients receive it instantly
+Saves to Redis list (max 80 messages) + publishes to Redis Pub/Sub so all SSE clients get it instantly.
 
 ---
 
 ### `GET /api/lounge/stream`
-**File:** `app/api/lounge/stream/route.ts`
-
-The real-time connection endpoint. Uses Server-Sent Events (SSE).
-
-**How SSE works (simple explanation):**
-- A normal API request is like a phone call where you ask a question and hang up
-- SSE is like keeping the phone line open — the server can keep sending you updates without you asking again
-- The browser connects once, and stays connected. Every new Lounge message gets pushed to the browser instantly
-
-When a new message is published to Redis Pub/Sub, this route catches it and streams it to all connected clients.
+The real-time connection. Uses **Server-Sent Events (SSE)** — the browser connects once and the server keeps pushing new messages as they arrive. No polling, no refresh needed.
 
 ---
 
 ### `GET /api/lounge/message`
-**File:** `app/api/lounge/message/route.ts`
-
-Returns the last 80 messages from the Lounge history (stored in Redis). Called when the Lounge first loads to show previous messages.
+Returns last 80 messages from Redis history. Called when Lounge first loads.
 
 ---
 
 ### `GET + POST /api/lounge/poll`
-**File:** `app/api/lounge/poll/route.ts`
-
-Handles polls in the Lounge.
-- `GET` — returns the active poll (if any) with current vote counts
-- `POST` — creates a new poll or records a vote
+- `GET` → returns active poll + current vote counts
+- `POST` → create new poll or record a vote
 
 ---
 
 ### `POST /api/lounge/react`
-**File:** `app/api/lounge/react/route.ts`
-
-Adds an emoji reaction to a specific message. Reactions are stored per-message, per-user so each person can only react once with each emoji.
+Adds/removes emoji reaction on a message. Per-user, per-emoji so no duplicate reactions.
 
 ---
 
 ### `POST /api/lounge/typing`
-**File:** `app/api/lounge/typing/route.ts`
-
-Broadcasts a "user is typing" signal to other connected visitors. This is how the typing indicator ("someone is typing...") works.
+Broadcasts "user is typing" signal to all connected visitors. Powers the typing indicator.
 
 ---
 
 ### `GET /api/lounge/gif-search`
-**File:** `app/api/lounge/gif-search/route.ts`
+Proxies GIF search to Giphy API. API key stays server-side.
 
-Proxies a GIF search request to the Giphy API. The API key is kept server-side (never exposed to the browser).
-
-**Request:** `GET /api/lounge/gif-search?q=hello`  
-**Response:** Array of GIF objects from Giphy
+`GET /api/lounge/gif-search?q=hello` → returns Giphy results
 
 ---
 
 ### `DELETE /api/lounge/delete`
-**File:** `app/api/lounge/delete/route.ts`
-
-Removes a specific message from the Lounge. Protected endpoint — requires authorization.
-
----
-
-## Navigation Flow
-
-```
-Home (/)
-├── /about
-├── /projects
-├── /credentials
-├── /gallery
-├── /skills
-├── /spectrum
-└── /kiro
-
-All pages share:
-├── Navbar (top, fixed)
-├── Footer (bottom)
-├── 3D Background (always running)
-├── GlassCursor (custom cursor)
-└── PageTransition (route animation)
-```
+Removes a specific message. Protected — requires authorization.
