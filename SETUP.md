@@ -21,49 +21,6 @@ git --version
 
 ---
 
-## Local Setup (Step by Step)
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/ayushcmd/portfolio.git
-cd portfolio
-```
-
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
-This reads `package.json` and downloads all required packages into a `node_modules/` folder.
-
-### 3. Create Environment Variables File
-
-Create a file named `.env.local` at the root of the project (same level as `package.json`):
-
-```bash
-# Windows (PowerShell)
-New-Item .env.local
-
-# Mac/Linux
-touch .env.local
-```
-
-Then open `.env.local` and add the variables listed in the next section.
-
-### 4. Start the Development Server
-
-```bash
-npm run dev
-```
-
-Open your browser and go to: **http://localhost:3000**
-
-Hot reload is enabled — any file change will automatically refresh the browser.
-
----
-
 ## Environment Variables
 
 The `.env.local` file must contain these variables. **Never commit this file to Git** (it's already in `.gitignore`).
