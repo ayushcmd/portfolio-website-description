@@ -1,18 +1,31 @@
-# Ayush Raj — Portfolio Documentation
-
-> **Full architecture and technical breakdown of [ayushcmd.me](https://ayushcmd.me)**  
-> Next.js 15 · TypeScript · TailwindCSS · Groq AI · Upstash Redis · Vercel
-
----
+<div align="center">
 
 ```
- █████╗ ██╗   ██╗██╗   ██╗███████╗██╗  ██╗     ██████╗ █████╗      ██╗
-██╔══██╗╚██╗ ██╔╝██║   ██║██╔════╝██║  ██║    ██╔════╝██╔══██╗     ██║
-███████║ ╚████╔╝ ██║   ██║███████╗███████║    ██║     ███████║     ██║
-██╔══██║  ╚██╔╝  ██║   ██║╚════██║██╔══██║    ██║     ██╔══██║██   ██║
-██║  ██║   ██║   ╚██████╔╝███████║██║  ██║    ╚██████╗██║  ██║╚█████╔╝
-╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═════╝╚═╝  ╚═╝ ╚════╝
+ █████╗ ██╗   ██╗██╗   ██╗███████╗██╗  ██╗    ██████╗  █████╗       ██╗
+██╔══██╗╚██╗ ██╔╝██║   ██║██╔════╝██║  ██║    ██╔══██╗██╔══██╗      ██║
+███████║ ╚████╔╝ ██║   ██║███████╗███████║    ███████╔╝███████║      ██║
+██╔══██║  ╚██╔╝  ██║   ██║╚════██║██╔══██║    ██╔══██╗ ██╔══██║ ██   ██║
+██║  ██║   ██║   ╚██████╔╝███████║██║  ██║    ██║  ██║ ██║  ██║ ╚█████╔╝
+╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝  ╚═╝ ╚═╝  ╚═╝  ╚════╝
 ```
+
+### Full architecture and technical breakdown of [ayushcmd.me](https://ayushcmd.me)
+
+<br/>
+
+![Next.js](https://img.shields.io/badge/Next.js_15-00e5ff?style=flat-square&logo=next.js&logoColor=000000)
+![TypeScript](https://img.shields.io/badge/TypeScript-00e5ff?style=flat-square&logo=typescript&logoColor=000000)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-00e5ff?style=flat-square&logo=tailwindcss&logoColor=000000)
+![Vercel](https://img.shields.io/badge/Vercel-00e5ff?style=flat-square&logo=vercel&logoColor=000000)
+![Redis](https://img.shields.io/badge/Upstash_Redis-00e5ff?style=flat-square&logo=redis&logoColor=000000)
+
+<br/>
+
+[![Live Site](https://img.shields.io/badge/LIVE_SITE-ayushcmd.me-00e5ff?style=for-the-badge&logoColor=000000)](https://ayushcmd.me)
+[![GitHub](https://img.shields.io/badge/GitHub-ayushcmd-00e5ff?style=for-the-badge&logo=github&logoColor=000000)](https://github.com/ayushcmd)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ayush08iitp-00e5ff?style=for-the-badge&logo=linkedin&logoColor=000000)](https://linkedin.com/in/ayush08iitp)
+
+</div>
 
 ---
 
